@@ -18,10 +18,10 @@ const header = require('../armstrong-header');
 console.log(header.display("Tyler", "Armstrong", "Assignment 4.4"));
 
 const states = ["Alabama", "Nebraska", "Iowa", "California", "Nevada"];
-let sortedStates = [];
-let selectedState;
 
 function getState(statesArray, stateToSelect) {
+
+  let selectedState;
 
   // filter/sort statesArray and assign to 'sortedStates'
   let sortedStates = statesArray.filter(function (state, index) {
