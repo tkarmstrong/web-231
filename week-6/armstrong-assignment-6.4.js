@@ -15,7 +15,7 @@
 */
 const header = require('../armstrong-header');
 
-console.log(header.display("Tyler", "Armstrong", "Exercise 6.3") + '\n');
+console.log(header.display("Tyler", "Armstrong", "Assignment 6.4") + '\n');
 
 // object 
 const ticket = {
