@@ -30,7 +30,10 @@ try {
 // Catches and logs error
 } catch (error) {
   console.log(error);
+} finally {
+  console.log("Finally clause reached...")
 }
+
 
 
   
