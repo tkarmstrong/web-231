@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <title>Exercise 8.3</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- you will need to the href to point to your root directories css file -->
+  <link rel="stylesheet" href="../site.css">
+  <style>
+
+  body {
+      font-family: 'Roboto';
+  }
+
+  tr:nth-child(odd) {
+    background-color: deeppink;
+  }
+
+  .top-bar {
+    width: 100%;
+    height: 50px;
+    background-color: cyan;
+  }
+
+  section {
+    margin: 20px 0 0 20px;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<section>
+  <h3>Paragraph Title</h3>
+
+  <p class="first-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta porttitor ante vel imperdiet. Maecenas congue orci ut lectus suscipit, et fermentum erat viverra. Maecenas laoreet orci et est iaculis, vel tincidunt magna hendrerit. Nunc ultrices at massa nec iaculis. Vestibulum euismod blandit leo, quis faucibus lorem lacinia rhoncus. Maecenas malesuada orci a leo convallis sagittis. Fusce non dictum arcu, tempus vulputate est. Sed felis metus, euismod eget pretium in, interdum vel nisi. Phasellus mauris dui, congue eu felis eu, volutpat volutpat nibh. Proin sit amet nibh aliquet, imperdiet nisl nec, sagittis erat. In vulputate mi rhoncus nunc fringilla fermentum. In dictum sem pretium arcu venenatis, eleifend ultricies tortor pulvinar.</p>
+  
+  <button id="toggle-btn">Toggle</button>
+</section>
+
+<section>
+  <div id="fruits"></div>  
+</section>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $("#toggle-btn").click(function(){
+    $("p").toggle();
+  });
+  
+});
+
+  const Orange = new fruit("Orange", "Citrus");
+  const Peach = new fruit("Peach", "Drupe");
+  const Apple = new fruit("Apple", "Pome");
+  const Blueberry = new fruit("Blueberry", "Berry");
+  const Pear = new fruit("Pear", "Pome");
+
+  let fruits = [Apple, Blueberry, Orange, Peach, Pear];
+  const list = document.getElementById("fruits");  
+
+  let listHTML = "<table><thead><tr><th>ID</th><th>Type</th></tr></thead><tbody>";
+  fruits.forEach(function(value) {
+    listHTML += `<tr onclick="alertFruit(this)"><td>${value.id}</td><td>${value.type}</td></tr>`;
+  });
+  listHTML += "</ul>";
+
+  list.innerHTML = listHTML;
+
+  function fruit(id, type) {
+    this.id = id;
+    this.type = type;
+  }
+
+  function alertFruit(x) {
+
+    const fruitIndex = x.rowIndex - 1;
+
+    switch (x.rowIndex) {
+      case 1:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+      case 2:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+      case 2:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+      case 3:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+      case 4:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+      default:
+        alert(`${fruits[fruitIndex].id} | ${fruits[fruitIndex].type}`)
+        break;
+    }
+  }
+
+</script>
+
+</body>
+</html>
