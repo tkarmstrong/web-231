@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 8.4</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- you will need to the href to point to your root directories css file -->
+  <link rel="stylesheet" href="../site.css">
+
+  <style type="text/css">
+    #employee tbody tr:hover {
+      cursor: pointer;
+      background-color: #ffff99;
+    }
+  </style>
+</head>
+<body>
+
+<div id="emps"></div>
+
+<script type="text/javascript">
+
+  function employee(id, firstName, lastName, title) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.title = title;
+  }
+
+  const Edison = new employee(1, "Thomas", "Edison", "Software Engineer");
+  const Franklin = new employee(2, "Benjamin", "Franklin", "Programmer");
+  const Tesla = new employee(3, "Tesla", "Nikola", "Project Manager");
+  const Babbage = new employee(4, "Charles", "Babbage", "Product Manager");
+  const Bell = new employee(5, "Alexander", "Bell", "Business Analyst");
+
+  let employees = [Edison, Franklin, Tesla, Babbage, Bell];
+
+  function getEmployee(id) {
+    employees.forEach(function(element){
+      if (element.id === parseInt(id)) {
+        console.log("logged " + element.id);
+        alert(`${element.id} ${element.firstName} ${element.lastName} ${element.title}`);
+      } 
+    });
+  }
+
+  let output = "<table id='employee'>";
+  output += "<thead>"
+  output += "<th>Id</th><th>First Name</th><th>Last Name</th><th>Title</th>";
+  output += "</thead>";
+  output += "<tbody>";
+  employees.forEach(function(element) {
+    output += `<tr><td>${element.id}</td><td>${element.firstName}</td><td>${element.lastName}</td><td>${element.title}</td></tr>`;
+  });
+  output += "</tbody></table>";
+
+  $("#emps").html(output); 
+
+  // jQuery onClick event
+  // Don't remove this, just add your code to the body of the event (curly braces)
+  $(function () {
+    $("table tr").click(function() {
+      let selectedEmp = $(this).find('td:first').html();
+      getEmployee(selectedEmp);
+      
+    })
+  });
+</script>
+</body>
+</html>
